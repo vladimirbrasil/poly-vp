@@ -74,23 +74,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="/" on-click="onDataRouteClick">
-            <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
-          </a>
+          <a data-route="home" href="/" on-click="onDataRouteClick">Home</a>
 
-          <a data-route="mapas" href="/mapas" on-click="onDataRouteClick">
-            <iron-icon icon="info"></iron-icon>
-            <span>Mapas</span>
-          </a>
+          <paper-submenu>
+            <paper-item class="menu-trigger">Mapas</paper-item>
+            <paper-menu class="menu-content sublist">
+              <paper-submenu>
+                <paper-item class="menu-trigger">Países</paper-item>
+                <paper-menu class="menu-content sublist2">
+                  <a data-route="mapa-info" href="/mapas/Brasil" on-click="onDataRouteClick">Brasil</a>
+                  <a data-route="mapa-info" href="/mapas/Inglaterra" on-click="onDataRouteClick">Inglaterra</a>
+                </paper-menu>
+              </paper-submenu>
+              <paper-submenu>
+                <paper-item class="menu-trigger">Estados</paper-item>
+                <paper-menu class="menu-content sublist2">
+                  <a data-route="mapa-info" href="/mapas/Rio Grande do Sul" on-click="onDataRouteClick">Rio Grande do Sul</a>
+                  <a data-route="mapa-info" href="/mapas/São Paulo" on-click="onDataRouteClick">São Paulo</a>
+                  <a data-route="mapa-info" href="/mapas/Tocantins" on-click="onDataRouteClick">Tocantins</a>
+                </paper-menu>
+              </paper-submenu>
+              <paper-submenu>
+                <paper-item class="menu-trigger">Municípios</paper-item>
+                <paper-menu class="menu-content sublist2">
+                  <a data-route="mapa-info" href="/mapas/Maceió" on-click="onDataRouteClick">Maceió</a>
+                  <a data-route="mapa-info" href="/mapas/Porto Alegre" on-click="onDataRouteClick">Porto Alegre</a>
+                  <a data-route="mapa-info" href="/mapas/São Paulo" on-click="onDataRouteClick">São Paulo</a>
+                </paper-menu>
+              </paper-submenu>
 
-          <a data-route="mapas2" href="/mapas2" on-click="onDataRouteClick">
-            <iron-icon icon="info"></iron-icon>
-            <span>Mapas2</span>
-          </a>
+            </paper-menu>
+          </paper-submenu>
 
           <a data-route="artigos" href="/artigos" on-click="onDataRouteClick">
-            <iron-icon icon="info"></iron-icon>
             <span>Artigos</span>
           </a>
 

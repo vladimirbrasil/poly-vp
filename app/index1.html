@@ -9,14 +9,33 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
+<!-- 
+Afazeres
+
+1. Usar local storage para armazenar dados de casa, família, amigos personalizados sem necessitar login.
+
+2. Criar páginas de maneira dinâmica, usando "dom-repeat" em array contendo estados. 
+2a. E cidades? Dentro das páginas de cada estado?
+2b. E países? Páginas próprias?
+2c. Opção: caixa de pesquisa para encontrar região/cidade/estado/país desejado.
+
+3. Apresentação dos dados dentro de um elemento padrão, que faz os cálculos e apresenta o resultado.
+3a. Entra: região + taxa
+3b. Utiliza dados de casa, família e amigos em local storage
+3c. Apresenta número de atingidos
+3d. Deixa pronto links para twitter, facebook, whatsapp?
+3e. Pode plotar em um mapa a região... 
+
+-->
+
 <html lang="">
 
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Mapa da Segurança" />
-  <title>Mapa da Segurança</title>
+  <meta name="generator" content="Polymer Starter Kit" />
+  <title>Polymer Starter Kit</title>
   <!-- Place favicon.ico in the `app/` directory -->
 
   <!-- Chrome for Android theme color -->
@@ -36,7 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Mapa da Segurança">
+  <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
   <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
   <!-- Tile icon for Win8 (144x144) -->
@@ -73,15 +92,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </paper-toolbar>
 
         <!-- Drawer Content -->
-        <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="/" on-click="onDataRouteClick">
+        <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}">
+          <a data-route="principal" href="/" on-click="onDataRouteClick">
             <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
+            <span>Principal</span>
           </a>
 
-          <a data-route="mapas" href="/mapas" on-click="onDataRouteClick">
+          <a data-route="mapa" href="/mapa" on-click="onDataRouteClick">
             <iron-icon icon="info"></iron-icon>
-            <span>Mapas</span>
+            <span>Mapa</span>
           </a>
 
           <a data-route="artigos" href="/artigos" on-click="onDataRouteClick">
@@ -89,7 +108,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Artigos</span>
           </a>
 
-          <a data-route="contato" href="/contato" on-click="onDataRouteClick">
+          <a data-route="Contato" href="/contato" on-click="onDataRouteClick">
             <iron-icon icon="mail"></iron-icon>
             <span>Contato</span>
           </a>
@@ -110,12 +129,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application name -->
           <div class="middle middle-container center horizontal layout">
-            <div class="app-name">Mapa da Segurança</div>
+            <div class="app-name">Polymer Starter Kit</div>
           </div>
 
           <!-- Application sub title -->
           <div class="bottom bottom-container center horizontal layout">
-            <div class="bottom-title paper-font-subhead">O primeiro mapa da <i>sua</i> segurança</div>
+            <div class="bottom-title paper-font-subhead">The future of the web today</div>
           </div>
 
         </paper-toolbar>
@@ -124,7 +143,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-            <section data-route="home">
+            <section data-route="principal">
               <paper-material elevation="1">
                 <my-greeting></my-greeting>
 
@@ -143,8 +162,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h2 class="page-title">Mapas</h2>
                 <p>This is the mapas section</p>
-                <a href="/mapas/Brasil">Brasil</a>
-                <a href="/mapas/São Paulo">São Paulo</a>
+                <a href="/mapas/Rob">Rob</a>
               </paper-material>
             </section>
 
@@ -157,20 +175,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
-            <section data-route="artigos">
-              <paper-material elevation="1">
-                <h2 class="page-title">Artigos</h2>
-                <p>This is the artigos section</p>
-              </paper-material>
-            </section>
 
-            <section data-route="contato">
-              <paper-material elevation="1">
-                <h2 class="page-title">Contato</h2>
-                <p>This is the Contato section</p>
-              </paper-material>
-            </section>
-
+            <my-list></my-list>
 
           </iron-pages>
         </div>

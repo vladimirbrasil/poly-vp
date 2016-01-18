@@ -1,0 +1,67 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="vp-data">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <iron-ajax
+       auto
+       url="data-estados-assassinatos.json"
+       last-response="{{estadosAssassinatosLoaded}}"
+       handle-as="json"
+       verbose="true">
+    </iron-ajax>
+
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'vp-data',
+
+      properties: {
+        statsEstados: {
+          type: Array,
+          value:  function() { return []; }
+        },
+        statsSources: {
+          type: Array,
+          value:  function() { return []; }
+        }
+      },
+      estadosAssassinatosLoaded: function() {
+        this.statsEstados = 'oi'; //Can't load statsEstados | can't run this function (last-response)...
+        return null;
+
+        var source = this.$.ajax.response.header;
+        var stats = this.$.ajax.response.stats;
+
+        for (var i = 0; i < stats.length; i++) {
+          this.statsEstados[ stats[i][0] ] = stats[i][1];
+        }
+
+        this.statsSources[ 'data-estados-assassinatos' ] = source;
+
+        console.log('data-estados-assassinatos loaded ' + this.ajaxResponse);
+      }
+
+    });
+  })();
+  </script>
+</dom-module>

@@ -84,6 +84,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Mapas</span>
           </a>
 
+          <a data-route="mapas2" href="/mapas2" on-click="onDataRouteClick">
+            <iron-icon icon="info"></iron-icon>
+            <span>Mapas2</span>
+          </a>
+
           <a data-route="artigos" href="/artigos" on-click="onDataRouteClick">
             <iron-icon icon="info"></iron-icon>
             <span>Artigos</span>
@@ -100,7 +105,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <paper-scroll-header-panel main condenses keep-condensed-header>
 
         <!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar" class="tall">
+        <paper-toolbar id="mainToolbar">
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
           <span class="flex"></span>
 
@@ -115,7 +120,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application sub title -->
           <div class="bottom bottom-container center horizontal layout">
-            <div class="bottom-title paper-font-subhead">O primeiro mapa da <i>sua</i> segurança</div>
           </div>
 
         </paper-toolbar>
@@ -152,6 +156,70 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h2 class="page-title">
                 Mapa:<span>{{params.name}}</span>
+                </h2>
+                <div>This is <span>{{params.name}}</span>'s section</div>
+              </paper-material>
+            </section>
+
+            <section data-route="mapas2">
+
+
+
+        <paper-drawer-panel id="mainDrawerPanel">
+
+          <paper-header-panel class="list-panel" drawer>
+
+        <!-- Drawer Content -->
+        <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+          <paper-item>
+            <a href="/mapas2/Brasil">Brasil</a>
+          </paper-item>
+          <paper-item>
+            <a href="/mapas2/São Paulo">São Paulo</a>
+          </paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+          <paper-item></paper-item>
+        </paper-menu>
+          </paper-header-panel>
+
+          <paper-header-panel class="content-panel" main>
+
+            <!-- Main Toolbar -->
+            <paper-toolbar>
+              <paper-icon-button icon="arrow-back" list-toggle></paper-icon-button>
+            </paper-toolbar>
+
+            <!-- Main Content -->
+            <div class="content"></div>
+
+          </paper-header-panel>
+
+        </paper-drawer-panel>
+
+
+
+            </section>
+
+            <section data-route="mapa2-info">
+              <paper-material elevation="1">
+                <h2 class="page-title">
+                Mapa2:<span>{{params.name}}</span>
                 </h2>
                 <div>This is <span>{{params.name}}</span>'s section</div>
               </paper-material>

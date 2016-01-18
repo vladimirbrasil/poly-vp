@@ -55,7 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer.Base.transform('scale(' + scaleBottom + ') translateZ(0)', bottomContainer);
 
     // Scale middleContainer appName
-    Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
+    Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', middleContainer); //appName);
   });
 
   // Close drawer after menu item is selected if drawerPanel is narrow

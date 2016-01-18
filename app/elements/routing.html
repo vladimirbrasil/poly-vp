@@ -36,6 +36,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.params = data.params;
     });
 
+    page('/mapas2', scrollToTop, function() {
+      app.route = 'mapas2';
+    });
+
+    page('/mapas2/:name', scrollToTop, function(data) {
+      app.route = 'mapa2-info';
+      app.params = data.params;
+    });
+
     page('/artigos', scrollToTop, function() {
       app.route = 'artigos';
     });
